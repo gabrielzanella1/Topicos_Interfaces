@@ -1,6 +1,9 @@
 // ./IContaBancaria.cs
 
-public interface IContaBancaria{
-    public void Depoistar(); //decimal valor?
-    public void Sacar();
+public interface IContaBancaria
+{
+
+    public void Depositar(decimal Valor);
+    public void Sacar(decimal Valor);
+
 }

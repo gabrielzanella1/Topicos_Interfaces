@@ -1,14 +1,31 @@
 // ./ContaPoupança.cs
 
-public class ContaPoupança : IContaBancaria{
-    public int NumeroConta {get;set;}
-    public decimal Saldo {get;set;}
+public class ContaPoupança : IContaBancaria
+{
+    public int NumeroConta { get; set; }
+    public decimal Saldo { get; set; }
 
-    public void Depoistar(decimal Valor){
+    public void Depositar(decimal Valor)
+    {
+        Saldo += Valor;
+        Console.WriteLine("Deposito no valor de " + Valor + " reais efetuado na conta " + NumeroConta);
         Console.WriteLine("Deposito feito na Conta Poupança.");
+        Console.WriteLine("O saldo resultante é: " + Saldo);
     }
-
-    public void Sacar(decimal Valor) {
-        Console.WriteLine("Saque feito na Conta Poupança.");
+    public void Sacar(decimal Valor)
+    {
+        if (Valor <= Saldo)
+        {
+            Saldo -= Valor;
+            Console.WriteLine("Saque no valor de " + Valor + " reais efetuado na conta " + NumeroConta);
+            Console.WriteLine("Saque feito na Conta Poupança.");
+            Console.WriteLine("O saldo resultante é: " + Saldo);
+            return;
+        }
+        else
+        {
+            Console.WriteLine("Negado, seu Saldo é: " + Saldo);
+            return;
+        }
     }
 }

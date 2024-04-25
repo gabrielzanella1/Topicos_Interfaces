@@ -1,10 +1,19 @@
 // ./Transacao.cs
 
-public class Transacao : IContaBancaria{
-    public string Tipo{get;set;}
-    public decimal Valor {get;set;}
+public class Transacao
+{
+    public string Tipo { get; set; }
+    public decimal Valor { get; set; }
 
-    public void ExebirDetalhes(){
-        return "";
+    public Transacao(string Tipo, decimal Valor, IContaBancaria conta)
+    {
+        if (Tipo == "Sacar")
+        {
+            conta.Sacar(Valor);
+        }
+        else if (Tipo == "Depositar")
+        {
+            conta.Depositar(Valor);
+        }
     }
 }
