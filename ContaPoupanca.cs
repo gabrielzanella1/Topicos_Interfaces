@@ -5,6 +5,12 @@ public class ContaPoupança : IContaBancaria
     public int NumeroConta { get; set; }
     public decimal Saldo { get; set; }
 
+    public void getNumeroConta()
+    {
+        Console.WriteLine(NumeroConta);
+        return;
+    }
+
     public void Depositar(decimal Valor)
     {
         Saldo += Valor;
